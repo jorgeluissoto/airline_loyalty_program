@@ -1,0 +1,20 @@
+SELECT *
+FROM "postgres"."airline_loyalty_program".cus_flight_activity;
+
+SELECT *
+FROM "postgres"."airline_loyalty_program".cus_loyalty_history;
+
+/* Customer loyalty program data from Northern Lights Air (NLA), a fictitious airline based in Canada. 
+In an effort to improve program enrollment, NLA ran a promotion between Feb - Apr 2018. Dataset includes 
+loyalty program signups, enrollment and cancellation details, and additional customer information. */LABEL
+
+-- What impact did the campaign have on loyalty program memberships (gross / net)?
+
+-- Was the campaign adoption more successful for certain demographics of loyalty members?
+
+-- What impact did the campaign have on booked flights during summer?
+
+-- We will be using the "loyalty_number" in any JOIN statements
+
+SELECT country, city
+FROM "postgres"."airline_loyalty_program".cus_loyalty_history;
