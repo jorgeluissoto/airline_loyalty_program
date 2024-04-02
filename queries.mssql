@@ -16,5 +16,17 @@ loyalty program signups, enrollment and cancellation details, and additional cus
 
 -- We will be using the "loyalty_number" in any JOIN statements
 
-SELECT country, city
-FROM "postgres"."airline_loyalty_program".cus_loyalty_history;
+-- Which customer took the most flights by enrollment type
+SELECT enrollment_type, SUM(total_flights) AS total_flights
+FROM "postgres"."airline_loyalty_program".cus_flight_activity AS fa
+JOIN "postgres"."airline_loyalty_program".cus_loyalty_history AS lh
+	ON fa.loyalty_number = lh.loyalty_number
+GROUP BY 1
+ORDER BY 2 DESC;
+
+-- what is their avg salary by enrollment type
+SELECT enrollment_type, ROUND(AVG(salary),2) AS avg_salary
+FROM "postgres"."airline_loyalty_program".cus_loyalty_history
+GROUP BY 1
+ORDER BY 2 DESC;
+
